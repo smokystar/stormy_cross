@@ -8,7 +8,7 @@ async def on_startup(_):
 import commands
 cur.execute(f'CREATE TABLE tickers(id bigint primary key, coin_name text, '
             f'binance text, bybit text, ftx text, huobi text, kucoin text, mexc text, phemex text, date_time text)')
-con.commi()
+con.commit()
 
 commands.register_handlers_client_partners(dp)
 
