@@ -235,33 +235,311 @@ def phemex():
     # print('PHEMEX: ', list_phemex)
     return list_phemex
 
+
+def bitfinex():
+    global list_bitfinex
+    bitfinex = ccxt.bitfinex()
+    # print(bitfinex.fetch_tickers())
+    bitfinex_list = {}
+    bitfinex_list_symbols = []
+    list_bitfinex = []
+
+    for i in coins_all:
+        try:
+            res = bitfinex.fetch_ticker(i)
+            bitfinex_list[f'{i}'] = res
+            bitfinex_tmp = res['symbol']
+            bitfinex_list_symbols.append(bitfinex_tmp)
+        except:
+            pass
+
+    for i in coins_all:
+        if i in bitfinex_list_symbols:
+            symbol = bitfinex_list[f'{i}']['symbol']
+            price = bitfinex_list[f'{i}']['last']
+            bitfinex_tmp_ = price
+            list_bitfinex.append(bitfinex_tmp_)
+        else:
+            symbol = i
+            price = np.nan
+            bitfinex_tmp_ = price
+            list_bitfinex.append(bitfinex_tmp_)
+    # print('bitfinex: ', list_bitfinex)
+    return list_bitfinex
+
+
+def gateio():
+    global list_gateio
+    gateio = ccxt.gateio()
+    # print(gateio.fetch_tickers())
+    gateio_list = {}
+    gateio_list_symbols = []
+    list_gateio = []
+
+    for i in coins_all:
+        try:
+            res = gateio.fetch_ticker(i)
+            gateio_list[f'{i}'] = res
+            gateio_tmp = res['symbol']
+            gateio_list_symbols.append(gateio_tmp)
+        except:
+            pass
+
+    for i in coins_all:
+        if i in gateio_list_symbols:
+            symbol = gateio_list[f'{i}']['symbol']
+            price = gateio_list[f'{i}']['last']
+            gateio_tmp_ = price
+            list_gateio.append(gateio_tmp_)
+        else:
+            symbol = i
+            price = np.nan
+            gateio_tmp_ = price
+            list_gateio.append(gateio_tmp_)
+    # print('GATEIO: ', list_gateio)
+    return list_gateio
+
+
+def poloniex():
+    global list_poloniex
+    poloniex = ccxt.poloniex()
+    # print(poloniex.fetch_tickers())
+    poloniex_list = {}
+    poloniex_list_symbols = []
+    list_poloniex = []
+
+    for i in coins_all:
+        try:
+            res = poloniex.fetch_ticker(i)
+            poloniex_list[f'{i}'] = res
+            poloniex_tmp = res['symbol']
+            poloniex_list_symbols.append(poloniex_tmp)
+        except:
+            pass
+
+    for i in coins_all:
+        if i in poloniex_list_symbols:
+            symbol = poloniex_list[f'{i}']['symbol']
+            price = poloniex_list[f'{i}']['last']
+            poloniex_tmp_ = price
+            list_poloniex.append(poloniex_tmp_)
+        else:
+            symbol = i
+            price = np.nan
+            poloniex_tmp_ = price
+            list_poloniex.append(poloniex_tmp_)
+    # print('POLONIEX: ', list_poloniex)
+    return list_poloniex
+
+
+def bitget():
+    global list_bitget
+    bitget = ccxt.bitget()
+    # print(bitget.fetch_tickers())
+    bitget_list = {}
+    bitget_list_symbols = []
+    list_bitget = []
+
+    for i in coins_all:
+        try:
+            res = bitget.fetch_ticker(i)
+            bitget_list[f'{i}'] = res
+            bitget_tmp = res['symbol']
+            bitget_list_symbols.append(bitget_tmp)
+        except:
+            pass
+
+    for i in coins_all:
+        if i in bitget_list_symbols:
+            symbol = bitget_list[f'{i}']['symbol']
+            price = bitget_list[f'{i}']['last']
+            bitget_tmp_ = price
+            list_bitget.append(bitget_tmp_)
+        else:
+            symbol = i
+            price = np.nan
+            bitget_tmp_ = price
+            list_bitget.append(bitget_tmp_)
+    # print('BITGET: ', list_bitget)
+    return list_bitget
+
+
+def aax():
+    aax = ccxt.aax()
+    aax_list = {}
+    aax_list_symbols = []
+    global list_aax
+    list_aax = []
+
+    for i in coins_all:
+        try:
+            res = aax.fetch_ticker(i)
+            aax_list[f'{i}'] = res
+            aax_tmp = res['symbol']
+            aax_list_symbols.append(aax_tmp)
+        except:
+            pass
+
+    for i in coins_all:
+        if i in aax_list_symbols:
+            symbol = aax_list[f'{i}']['symbol']
+            price = aax_list[f'{i}']['last']
+            aax_tmp_ = price
+            list_aax.append(aax_tmp_)
+        else:
+            symbol = i
+            price = np.nan
+            aax_tmp_ = price
+            list_aax.append(aax_tmp_)
+    # print('AAX: ', list_aax)
+    return list_aax
+
+
+def upbit():
+    upbit = ccxt.upbit()
+    upbit_list = {}
+    upbit_list_symbols = []
+    global list_upbit
+    list_upbit = []
+
+    for i in coins_all:
+        try:
+            res = upbit.fetch_ticker(i)
+            upbit_list[f'{i}'] = res
+            upbit_tmp = res['symbol']
+            upbit_list_symbols.append(upbit_tmp)
+        except:
+            pass
+
+    for i in coins_all:
+        if i in upbit_list_symbols:
+            symbol = upbit_list[f'{i}']['symbol']
+            price = upbit_list[f'{i}']['last']
+            upbit_tmp_ = price
+            list_upbit.append(upbit_tmp_)
+        else:
+            symbol = i
+            price = np.nan
+            upbit_tmp_ = price
+            list_aax.append(upbit_tmp_)
+    # print('AAX: ', list_aax)
+    return list_upbit
+
+
+def bithumb():
+    bithumb = ccxt.bithumb()
+    bithumb_list = {}
+    bithumb_list_symbols = []
+    global list_bithumb
+    list_bithumb = []
+
+    for i in coins_all:
+        try:
+            res = bithumb.fetch_ticker(i)
+            bithumb_list[f'{i}'] = res
+            bithumb_tmp = res['symbol']
+            bithumb_list_symbols.append(bithumb_tmp)
+        except:
+            pass
+
+    for i in coins_all:
+        if i in bithumb_list_symbols:
+            symbol = bithumb_list[f'{i}']['symbol']
+            price = bithumb_list[f'{i}']['last']
+            bithumb_tmp_ = price
+            list_bithumb.append(bithumb_tmp_)
+        else:
+            symbol = i
+            price = np.nan
+            bithumb_tmp_ = price
+            list_bithumb.append(bithumb_tmp_)
+    # print('AAX: ', list_aax)
+    return list_bithumb
+
+
+def bitforex():
+    global list_bitforex
+    bitforex = ccxt.bitforex()
+    # print(bitforex.fetch_tickers())
+    bitforex_list = {}
+    bitforex_list_symbols = []
+    list_bitforex = []
+
+    for i in coins_all:
+        try:
+            res = bitforex.fetch_ticker(i)
+            bitforex_list[f'{i}'] = res
+            bitforex_tmp = res['symbol']
+            bitforex_list_symbols.append(bitforex_tmp)
+        except:
+            pass
+
+    for i in coins_all:
+        if i in bitforex_list_symbols:
+            symbol = bitforex_list[f'{i}']['symbol']
+            price = bitforex_list[f'{i}']['last']
+            bitforex_tmp_ = price
+            list_bitforex.append(bitforex_tmp_)
+        else:
+            symbol = i
+            price = np.nan
+            bitforex_tmp_ = price
+            list_bitforex.append(bitforex_tmp_)
+    # print('BITFOREX', list_bitforex)
+    return list_bitforex
+
 async def start_func():
 
     t1 = Thread(target=bybit)
-    t4 = Thread(target=binance)
-    t14 = Thread(target=ftx)
-    t16 = Thread(target=huobi)
-    t18 = Thread(target=kucoin)
-    t19 = Thread(target=mexc)
-    t20 = Thread(target=phemex)
-
+    t2 = Thread(target=binance)
+    t3 = Thread(target=ftx)
+    t4 = Thread(target=huobi)
+    t5 = Thread(target=kucoin)
+    t6 = Thread(target=mexc)
+    t7 = Thread(target=phemex)
+    t8 = Thread(target=bithumb)
+    t9 = Thread(target=bitget)
+    t10 = Thread(target=bitforex)
+    t11 = Thread(target=bitfinex)
+    t12 = Thread(target=aax)
+    t13 = Thread(target=upbit)
+    t14 = Thread(target=gateio)
+    t15 = Thread(target=poloniex)
+    
 
     t1.start()
+    t2.start()
+    t3.start()
     t4.start()
+    t5.start()
+    t6.start()
+    t7.start()
+    t8.start()
+    t9.start()
+    t10.start()
+    t11.start()
+    t12.start()
+    t13.start()
     t14.start()
-    t16.start()
-    t18.start()
-    t19.start()
-    t20.start()
-
+    t15.start()
+    
 
     t1.join()
+    t2.join()
+    t3.join()
     t4.join()
+    t5.join()
+    t6.join()
+    t7.join()
+    t8.join()
+    t9.join()
+    t10.join()
+    t11.join()
+    t12.join()
+    t13.join()
     t14.join()
-    t16.join()
-    t18.join()
-    t19.join()
-    t20.join()
+    t15.join()
+    
 
     for i in coins:
         date_tmp = datetime.datetime.now()
@@ -366,28 +644,108 @@ async def start_func():
             id = cur.fetchone()[0] + 1
             cur.execute(f"update tickers set mexc = '{nan}' where id = {id}")
             con.commit()
+            
+    
+    for i in list_bitforex:
+        if i != None:
+            cur.execute('select count(bitforex) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set bitforex = '{i}' where id = {id}")
+            con.commit()
+        else:
+            nan = 'None'
+            cur.execute('select count(bitforex) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set bitforex = '{nan}' where id = {id}")
+            con.commit()
+    
+    for i in list_bitfinex:
+        if i != None:
+            cur.execute('select count(bitfinex) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set bitfinex = '{i}' where id = {id}")
+            con.commit()
+        else:
+            nan = 'None'
+            cur.execute('select count(bitfinex) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set bitfinex = '{nan}' where id = {id}")
+            con.commit()
 
+    for i in list_gateio:
+        if i != None:
+            cur.execute('select count(gateio) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set gateio = '{i}' where id = {id}")
+            con.commit()
+        else:
+            nan = 'None'
+            cur.execute('select count(gateio) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set gateio = '{nan}' where id = {id}")
+            con.commit()
 
+    for i in list_bithumb:
+        if i != None:
+            cur.execute('select count(bithumb) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set bithumb = '{i}' where id = {id}")
+            con.commit()
+        else:
+            nan = 'None'
+            cur.execute('select count(bithumb) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set bithumb = '{nan}' where id = {id}")
+            con.commit()
 
-    # df = pd.DataFrame(data)
-    # df.set_index('Coin', inplace=True)
-    # df.to_excel('tickers_data.xlsx')
-    # data_1 = df.idxmax(axis=1)
-    # data_2 = df.idxmin(axis=1)
-    # data_spread = ((df.max(axis=1) / df.min(axis=1))*100-100)
-    # data_min = df.min(axis=1)
-    # data_max = df.max(axis=1)
-    # data_results = {'max_value': data_max, 'min_value': data_min, 'max_exchange':data_1, 'min_exchange':data_2, 'spread':data_spread}
-    # dff = pd.DataFrame(data_results)
-    # # print(dff)
-    # dff.groupby(['spread']).max()
-    # print(dff.sort_values(by='spread', ascending=False))
-    # dff.to_excel('spread.xlsx')
-    # end_time = datetime.datetime.now()
-    # print(start_time, end_time)
-    # data_tmp = df.to_json()
-    # # print(data_tmp)
-    # items = json.loads(data_tmp)
-    # print(items)
-    # for i in items:
-    #     print(items[i])
+    for i in list_upbit:
+        if i != None:
+            cur.execute('select count(upbit) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set upbit = '{i}' where id = {id}")
+            con.commit()
+        else:
+            nan = 'None'
+            cur.execute('select count(upbit) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set upbit = '{nan}' where id = {id}")
+            con.commit()
+
+    for i in list_poloniex:
+        if i != None:
+            cur.execute('select count(poloniex) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set poloniex = '{i}' where id = {id}")
+            con.commit()
+        else:
+            nan = 'None'
+            cur.execute('select count(poloniex) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set poloniex = '{nan}' where id = {id}")
+            con.commit()
+
+    for i in list_aax:
+        if i != None:
+            cur.execute('select count(aax) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set aax = '{i}' where id = {id}")
+            con.commit()
+        else:
+            nan = 'None'
+            cur.execute('select count(aax) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set aax = '{nan}' where id = {id}")
+            con.commit()
+
+    for i in list_bitget:
+        if i != None:
+            cur.execute('select count(bitget) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set bitget = '{i}' where id = {id}")
+            con.commit()
+        else:
+            nan = 'None'
+            cur.execute('select count(bitget) from tickers')
+            id = cur.fetchone()[0] + 1
+            cur.execute(f"update tickers set bitget = '{nan}' where id = {id}")
+            con.commit()
