@@ -7,8 +7,7 @@ async def on_startup(_):
 
 import commands
 
-# cur.execute(f'CREATE TABLE tickers(id bigint primary key, coin_name text, '
-            f'binance text, bybit text, ftx text, huobi text, kucoin text, mexc text, phemex text, date_time text)')
+# cur.execute(f'CREATE TABLE tickers(id bigint primary key, coin_name text,binance text, bybit text, ftx text, huobi text, kucoin text, mexc text, phemex text, date_time text)')
 # con.commit()
 
 cur.execute(f'delete from tickers')
