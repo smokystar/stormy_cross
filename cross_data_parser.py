@@ -456,11 +456,11 @@ async def start_func():
                     'spread': data_spread}
     dff = pd.DataFrame(data_results)
     dff.sort_values(by='spread', ascending=False, inplace=True)
-    print(dff)
+    #print(dff)
     dict = dff.to_json()
     tmp = dff[dff['spread'] > 0.6]
     trigger = dff['spread'].max()
-    print(trigger)
+    #print(trigger)
     if trigger > 0.6:
         await bot.send_message(admin_id, f'{tmp}')
         await bot.send_message(vova_id, f'{tmp}')
