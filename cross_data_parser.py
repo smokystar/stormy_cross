@@ -75,39 +75,6 @@ def binance():
 
 
 
-'''ftx'''
-def ftx():
-    global list_ftx
-    ftx = ccxt.ftx()
-    # print(ftx.fetch_tickers())
-    ftx_list = {}
-    ftx_list_symbols = []
-    list_ftx = []
-
-    for i in coins_all:
-        try:
-            res = ftx.fetch_ticker(i)
-            ftx_list[f'{i}'] = res
-            ftx_tmp = res['symbol']
-            ftx_list_symbols.append(ftx_tmp)
-        except:
-            pass
-
-    for i in coins_all:
-        if i in ftx_list_symbols:
-            symbol = ftx_list[f'{i}']['symbol']
-            price = ftx_list[f'{i}']['last']
-            ftx_tmp_ = price
-            list_ftx.append(ftx_tmp_)
-        else:
-            symbol = i
-            price = np.nan
-            ftx_tmp_ = price
-            list_ftx.append(ftx_tmp_)
-    # print('FTX: ', list_ftx)
-    return list_ftx
-
-
 '''huobi'''
 def huobi():
     global list_huobi
@@ -401,7 +368,7 @@ async def start_func():
 
     t1 = Thread(target=bybit)
     t2 = Thread(target=binance)
-    t3 = Thread(target=ftx)
+    
     t4 = Thread(target=huobi)
     t5 = Thread(target=kucoin)
     t6 = Thread(target=mexc)
@@ -415,7 +382,7 @@ async def start_func():
 
     t1.start()
     t2.start()
-    t3.start()
+    
     t4.start()
     t5.start()
     t6.start()
@@ -429,7 +396,7 @@ async def start_func():
 
     t1.join()
     t2.join()
-    t3.join()
+    
     t4.join()
     t5.join()
     t6.join()
@@ -441,7 +408,7 @@ async def start_func():
     t14.join()
 
     data = {'Coin': coins, 'binance': list_binance,
-            'bybit': list_bybit, 'bitforex': list_bitforex, 'bitget': list_bitget, 'ftx': list_ftx, 'gateio': list_gateio,
+            'bybit': list_bybit, 'bitforex': list_bitforex, 'bitget': list_bitget, 'gateio': list_gateio,
             'huobi': list_huobi, 'kucoin': list_kucoin, 'mexc': list_mexc, 'phemex': list_phemex}
 
     df = pd.DataFrame(data)
