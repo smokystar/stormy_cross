@@ -425,10 +425,10 @@ async def start_func():
     dff.sort_values(by='spread', ascending=False, inplace=True)
     #print(dff)
     dict = dff.to_json()
-    tmp = dff[dff['spread'] > 0.7]
+    tmp = dff[dff['spread'] > 1]
     trigger = dff['spread'].max()
     #print(trigger)
-    if trigger > 0.7:
+    if trigger > 1:
         await bot.send_message(admin_id, f'{tmp}')
         await bot.send_message(vova_id, f'{tmp}')
     # for i in coins:
