@@ -85,7 +85,7 @@ def binance():
 
 def huobi():
     global list_huobi
-    huobi = ccxt.huobi()
+    huobi = ccxt.mexc()
     # print(huobi.fetch_tickers())
     huobi_list = {}
     huobi_list_symbols = []
